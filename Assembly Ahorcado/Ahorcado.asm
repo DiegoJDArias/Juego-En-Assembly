@@ -83,21 +83,16 @@ read2:
 finRead2:
     mov    ax, 12h                  ; modo de video (720x400)
     int    10h  
-
     print  enter
     print  titulo                   ; Pistas
-
     print  enter
-    print  string3
-                                                  
+    print  string3                                              
     print  enter
     print  stringPista
     print  enter
     print  enter
-
     print  enter
     print  string4
-
     print  enter
     print  stringIngreso
     print  enter
