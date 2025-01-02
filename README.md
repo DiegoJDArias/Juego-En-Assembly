@@ -2,7 +2,7 @@
 
 Hangman is a guessing game for two or more players. One player thinks of a word, phrase, or sentence and the other(s) tries to guess it by suggesting letters or numbers within a certain number of guesses. Originally a paper-and-pencil game.
 
-La palabra a adivinar se representa mediante una fila de guiones que representan cada letra o número de la palabra . Las reglas pueden permitir o prohibir nombres propios (como nombres, lugares o marcas) u otros tipos de palabras (como jerga ). Si el jugador que adivina sugiere una letra que aparece en la palabra, el otro jugador la escribe en todas sus posiciones correctas. Si la letra sugerida no aparece en la palabra, el otro jugador agrega (o, alternativamente, elimina) un elemento de una figura de palitos colgada como marca de conteo . Generalmente, el juego termina una vez que se adivina la palabra, o si la figura de palitos está completa, lo que significa que se han usado todas las conjeturas.
+The word to guess is represented by a row of dashes representing each letter or number of the word. Rules may permit or forbid proper nouns (such as names, places, or brands) or other types of words (such as slang). If the guessing player suggests a letter which occurs in the word, the other player writes it in all its correct positions. If the suggested letter does not occur in the word, the other player adds (or alternatively, removes) one element of a hanged stick figure as a tally mark. Generally, the game ends once the word is guessed, or if the stick figure is complete—signifying that all guesses have been used.
 
 # Winner.
 
