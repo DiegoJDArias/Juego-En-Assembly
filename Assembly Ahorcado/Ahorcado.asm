@@ -50,7 +50,7 @@ start:
     mov    ax, data
     mov    ds, ax
     mov    es, ax
-    print  titulo                    ; ===== INICIO ===== ;
+    print  titulo                    
     print  string
     mov    si, offset strbuscarda
     mov    cx, 0
@@ -66,9 +66,9 @@ read:
     jmp    read
 	
 finRead:
-    mov    contador, cx             ; Guardamos la cantidad de strbuscardas
+    mov    contador, cx             
     print  enter                     
-    print  string2                   ; Pista
+    print  string2                   
     mov    si, offset stringPista
 	
 read2:
@@ -81,10 +81,10 @@ read2:
     jmp    read2
 	
 finRead2:
-    mov    ax, 12h                  ; modo de video (720x400)
+    mov    ax, 12h                  
     int    10h  
     print  enter
-    print  titulo                   ; Pistas
+    print  titulo                  
     print  enter
     print  string3                                              
     print  enter
@@ -102,8 +102,8 @@ finRead2:
 ; * ===== Empieza el juego =====
 
 verifica:    
-    print  cleanLinea                 ; Limpia linea
-    mov    si, offset strEncontrada   ; strEncontrada = strbuscarda que forma el usuario
+    print  cleanLinea                 
+    mov    si, offset strEncontrada   
     mov    cx, contador
 	
 cuenta:
@@ -111,7 +111,7 @@ cuenta:
     mov    bx, 0
     mov    bl, [si]
     cmp    bl, 0
-    jz     printGuion                 ; Imprime el valor del vector
+    jz     printGuion                 
     mov    dx, bx 
     mov    ah, 2
     int    21h
@@ -122,9 +122,9 @@ printGuion:
     
 sigCuenta:
     inc    si
-    loop   cuenta                     ; Verifica si ya encontro la strbuscarda
-    mov    si, offset strbuscarda     ; strbuscarda a encontrar
-    mov    di, offset strEncontrada   ; strbuscarda del usuario
+    loop   cuenta                     
+    mov    si, offset strbuscarda     
+    mov    di, offset strEncontrada   
     mov    cx, contador
 	
 comprobarPalabra:
@@ -134,26 +134,26 @@ comprobarPalabra:
     mov    bl, [di]
     cmp    al, bl
     jz     sigVerificar
-    jmp    digiteLetra               ; si no es igual que siga buscarndo
+    jmp    digiteLetra               
     
 sigVerificar:
-    inc    si                        ; Verifica cada caracter
+    inc    si                        
     inc    di
     loop   comprobarPalabra
-    print  enter                     ; A ganado :D
+    print  enter                     
     print  enter
     print  cleaner
     print  stringWinner
     jmp    sigstringFinal
 
 digiteLetra:
-    print  stringLetra               ; Digite una letra
+    print  stringLetra               
     mov    ah, 1
     int    21h
-    mov    si, offset strbuscarda     ; Verificamos si esta caracter se encuentra en la cadena
+    mov    si, offset strbuscarda     
     mov    di, offset strEncontrada
     mov    cx, contador
-    mov    dx, 0                     ; Bandera para verificar si acerto
+    mov    dx, 0                    
 	
 buscar:
     mov    bx, 0
@@ -163,16 +163,16 @@ buscar:
     jmp    sigB
     
 colocaLetra:
-    mov    [di], al                  ; coloca el caracter a la strbuscarda usuario
+    mov    [di], al                  
     mov    dx, 1
     
 sigB:
     inc    si
     inc    di
     loop   buscar
-    cmp    dx, 1                    ; Verificando si la letra estaba en la strbuscarda
+    cmp    dx, 1                    
     jz     correcto
-    mov    cx, intentos             ; incorrecto:
+    mov    cx, intentos           
     inc    cx
     mov    intentos, cx
     cmp    cx, 1
@@ -187,7 +187,7 @@ sigB:
     jz     quintoIntento
     cmp    cx, 6
     jz     sextoIntento 
-    cmp    cx, 7               ; VER ESTO QUE TAL...
+    cmp    cx, 7              
     jmp    septimoIntento
 	
 primerIntento:
@@ -270,18 +270,18 @@ septimoIntento:
 sigIncorrecto:
    
 correcto:
-    mov    cx, intentos             ; Verifica si tiene mas intentos
+    mov    cx, intentos             
     cmp    cx, 7
     jz     gameOver
     jmp    verifica
    
 gameOver:
-    print  enter                    ; A perdido :c
+    print  enter                   
     print  cleaner
     print  stringFin
    
 sigstringFinal:
-    mov    ax, 4C00h                ; ===== stringFin ===== ;
+    mov    ax, 4C00h               
     int    21h
 ends
 
